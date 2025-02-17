@@ -1,0 +1,28 @@
+# cuboid.py
+
+def main():
+    """
+    Compute the volume of a cuboid based on user input for height, width, and depth.
+    """
+    try:
+        # Prompt the user for the dimensions of the cuboid
+        height = float(input("Enter the height of the cuboid: "))
+        width = float(input("Enter the width of the cuboid: "))
+        depth = float(input("Enter the depth of the cuboid: "))
+
+        # Validate that the dimensions are positive numbers
+        if height <= 0 or width <= 0 or depth <= 0:
+            print("Error: All dimensions must be positive numbers.")
+            return
+
+        # Calculate the volume using the formula: height * width * depth
+        volume = height * width * depth
+
+        # Display the volume of the cuboid
+        print(f"The volume of the cuboid is: {volume} cubic units")
+
+    except ValueError:
+        print("Error: Please enter valid numeric values for all dimensions.")
+
+if __name__ == "__main__":
+    main()
