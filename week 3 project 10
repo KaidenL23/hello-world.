@@ -1,0 +1,28 @@
+# taxform.py
+
+# Constants
+TAX_RATE = 0.2  # 20%
+DEPENDENT_DEDUCTION = 3000  # $3000 deduction per dependent
+
+def calculate_income_tax(gross_income, num_dependents):
+    # Calculate taxable income
+    deduction = num_dependents * DEPENDENT_DEDUCTION
+    taxable_income = max(0, gross_income - deduction)  # Taxable income can't be negative
+    
+    # Calculate tax
+    income_tax = taxable_income * TAX_RATE
+    return income_tax
+
+def main():
+    # Get user input
+    gross_income = float(input("Enter the gross income: "))
+    num_dependents = int(input("Enter the number of dependents: "))
+    
+    # Calculate income tax
+    income_tax = calculate_income_tax(gross_income, num_dependents)
+    
+    # Display the result rounded to two decimal places
+    print(f"The income tax is ${round(income_tax, 2)}")
+
+if __name__ == "__main__":
+    main()
