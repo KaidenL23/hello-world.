@@ -1,0 +1,42 @@
+import math
+
+def guessing_game():
+    print("Think of a number within a given range, and I'll try to guess it!")
+    
+    # Get lower and upper bounds from the user
+    lower = int(input("Enter the lower bound: "))
+    upper = int(input("Enter the upper bound: "))
+    
+    # Compute the maximum number of guesses needed
+    max_guesses = math.ceil(math.log2(upper - lower + 1))
+    print(f"I will find your number in at most {max_guesses} guesses.")
+    
+    attempts = 0
+    
+    while lower <= upper:
+        guess = (lower + upper) // 2
+        print(f"Is your number {guess}? (Enter 'h' for too high, 'l' for too low, 'c' for correct)")
+        response = input().strip().lower()
+        
+        if response == 'c':
+            attempts += 1
+            print(f"I guessed your number in {attempts} attempts!")
+            return
+        elif response == 'h':
+            if guess <= lower:
+                print("Don't try to cheat! You must be consistent.")
+            else:
+                upper = guess - 1
+                attempts += 1
+        elif response == 'l':
+            if guess >= upper:
+                print("Don't try to cheat! You must be consistent.")
+            else:
+                lower = guess + 1
+                attempts += 1
+        else:
+            print("Invalid input! Please enter 'h' for too high, 'l' for too low, or 'c' for correct.")
+    
+    print("Something went wrong. Did you change your number?")
+
+guessing_game()
