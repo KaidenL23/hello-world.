@@ -1,0 +1,21 @@
+import string
+
+def caesar_cipher(text, distance):
+    all_chars = string.printable  # Includes all printable characters
+    encrypted_text = ""
+
+    for char in text:
+        if char in all_chars:
+            new_index = (all_chars.index(char) + distance) % len(all_chars)
+            encrypted_text += all_chars[new_index]
+        else:
+            encrypted_text += char  # Keep the character unchanged if not in printable
+
+    return encrypted_text
+
+if __name__ == "__main__":
+    plaintext = input("Enter text to encrypt: ")
+    distance = int(input("Enter shift distance: "))
+
+    encrypted_text = caesar_cipher(plaintext, distance)
+    print("Encrypted text:", encrypted_text)
