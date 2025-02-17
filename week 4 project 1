@@ -1,0 +1,18 @@
+# bouncy.py
+
+# Get user input for the initial height and number of bounces
+initial_height = float(input("Enter the initial height from which the ball is dropped (in feet): "))
+bounciness_index = float(input("Enter the bounciness index of the ball (e.g., 0.6 for 60% bounce height): "))
+num_bounces = int(input("Enter the number of times the ball is allowed to bounce: "))
+
+# Initialize total distance with the initial drop
+total_distance = initial_height
+
+# Calculate the total distance traveled
+current_height = initial_height
+for _ in range(num_bounces):
+    current_height *= bounciness_index  # Ball bounces back up
+    total_distance += 2 * current_height  # Add both the up and down distances
+
+# Output the total distance traveled
+print(f"Total distance traveled by the ball: {total_distance:.2f} feet")
