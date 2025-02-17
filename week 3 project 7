@@ -1,0 +1,24 @@
+# minutes.py
+
+def calculate_minutes(years):
+    # Constants
+    MINUTES_IN_HOUR = 60
+    HOURS_IN_DAY = 24
+    DAYS_IN_YEAR = 365
+
+    # Calculate minutes
+    minutes = years * DAYS_IN_YEAR * HOURS_IN_DAY * MINUTES_IN_HOUR
+    return minutes
+
+def main():
+    # Get user input
+    years = int(input("Enter the number of years: "))
+    
+    # Calculate the total number of minutes
+    minutes = calculate_minutes(years)
+    
+    # Display the result
+    print(f"There are {minutes} minutes in {years} years.")
+
+if __name__ == "__main__":
+    main()
