@@ -1,0 +1,34 @@
+# Program to calculate the momentum of an object
+def calculate_momentum(mass, velocity):
+    """
+    Calculate the momentum of an object given its mass and velocity.
+
+    Args:
+        mass (float): The mass of the object in kilograms.
+        velocity (float): The velocity of the object in meters per second.
+
+    Returns:
+        float: The momentum of the object.
+    """
+    return mass * velocity
+
+def main():
+    try:
+        # Take mass and velocity as inputs
+        mass = float(input("Enter the mass of the object (in kilograms): "))
+        velocity = float(input("Enter the velocity of the object (in meters per second): "))
+
+        if mass < 0:
+            print("Mass cannot be negative.")
+            return
+
+        # Calculate momentum
+        momentum = calculate_momentum(mass, velocity)
+
+        # Print the result
+        print(f"The momentum of the object is: {momentum:.2f} kg·m/s")
+    except ValueError:
+        print("Please enter valid numerical values for mass and velocity.")
+
+if __name__ == "__main__":
+    main()
