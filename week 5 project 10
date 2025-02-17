@@ -1,0 +1,33 @@
+def tidbit_payment_schedule():
+    print("TidBit Computer Store Payment Schedule")
+    
+    # Get purchase price from the user
+    purchase_price = float(input("Enter the purchase price: "))
+    
+    # Define constants
+    down_payment = 0.10 * purchase_price
+    annual_interest_rate = 0.12
+    monthly_payment = 0.05 * (purchase_price - down_payment)
+    balance = purchase_price - down_payment
+    
+    print("\nPayment Schedule")
+    print("Month\tBalance\tInterest\tPrincipal\tPayment\tRemaining Balance")
+    print("----------------------------------------------------------------------")
+    
+    month = 0
+    while balance > 0:
+        month += 1
+        interest = balance * (annual_interest_rate / 12)
+        principal = monthly_payment - interest
+        
+        if principal > balance:
+            principal = balance
+            monthly_payment = principal + interest
+        
+        remaining_balance = balance - principal
+        
+        print(f"{month}\t${balance:,.2f}\t${interest:,.2f}\t${principal:,.2f}\t${monthly_payment:,.2f}\t${remaining_balance:,.2f}")
+        
+        balance = remaining_balance
+
+tidbit_payment_schedule()
