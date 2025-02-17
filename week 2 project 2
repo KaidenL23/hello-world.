@@ -1,0 +1,31 @@
+# Program to calculate the surface area of a cube
+def calculate_surface_area(edge_length):
+    """
+    Calculate the surface area of a cube given the length of an edge.
+
+    Args:
+        edge_length (int): The length of an edge of the cube.
+
+    Returns:
+        int: The surface area of the cube.
+    """
+    return 6 * (edge_length ** 2)
+
+def main():
+    try:
+        # Take the length of an edge as input
+        edge_length = int(input("Enter the length of an edge of the cube: "))
+        if edge_length < 0:
+            print("Edge length cannot be negative.")
+            return
+
+        # Calculate the surface area
+        surface_area = calculate_surface_area(edge_length)
+
+        # Print the result
+        print(f"The surface area of the cube is: {surface_area}")
+    except ValueError:
+        print("Please enter a valid integer.")
+
+if __name__ == "__main__":
+    main()
