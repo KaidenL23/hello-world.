@@ -1,0 +1,16 @@
+# population.py
+
+# Get user inputs
+initial_population = int(input("Enter the initial number of organisms: "))
+growth_rate = float(input("Enter the rate of growth (e.g., 2 for doubling): "))
+growth_period = float(input("Enter the number of hours to achieve this rate: "))
+total_hours = float(input("Enter the total number of hours the population will grow: "))
+
+# Calculate the number of growth cycles
+num_cycles = total_hours // growth_period
+
+# Calculate the final population using exponential growth
+final_population = initial_population * (growth_rate ** num_cycles)
+
+# Display the result
+print(f"Predicted population after {total_hours} hours: {int(final_population)} 
