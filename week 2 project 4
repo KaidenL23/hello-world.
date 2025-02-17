@@ -1,0 +1,41 @@
+import math
+
+def calculate_sphere_properties(radius):
+    """
+    Calculate the properties of a sphere given its radius.
+
+    Args:
+        radius (float): The radius of the sphere.
+
+    Returns:
+        dict: A dictionary containing the diameter, circumference, surface area, and volume of the sphere.
+    """
+    properties = {
+        "diameter": 2 * radius,
+        "circumference": 2 * math.pi * radius,
+        "surface_area": 4 * math.pi * (radius ** 2),
+        "volume": (4/3) * math.pi * (radius ** 3)
+    }
+    return properties
+
+def main():
+    try:
+        # Take the radius as input
+        radius = float(input("Enter the radius of the sphere: "))
+        if radius < 0:
+            print("Radius cannot be negative.")
+            return
+
+        # Calculate sphere properties
+        properties = calculate_sphere_properties(radius)
+
+        # Print the results
+        print(f"Diameter: {properties['diameter']:.2f}")
+        print(f"Circumference: {properties['circumference']:.2f}")
+        print(f"Surface Area: {properties['surface_area']:.2f}")
+        print(f"Volume: {properties['volume']:.2f}")
+    except ValueError:
+        print("Please enter a valid number.")
+
+if __name__ == "__main__":
+    main()
