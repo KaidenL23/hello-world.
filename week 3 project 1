@@ -1,0 +1,28 @@
+# employeepay.py
+
+def calculate_weekly_pay(hourly_wage, regular_hours, overtime_hours):
+    # Overtime pay multiplier
+    OVERTIME_MULTIPLIER = 1.5
+    
+    # Calculate regular and overtime pay
+    regular_pay = hourly_wage * regular_hours
+    overtime_pay = overtime_hours * hourly_wage * OVERTIME_MULTIPLIER
+    
+    # Total weekly pay
+    total_pay = regular_pay + overtime_pay
+    return total_pay
+
+def main():
+    # Get user inputs
+    hourly_wage = float(input("Enter the hourly wage: "))
+    regular_hours = float(input("Enter the total regular hours: "))
+    overtime_hours = float(input("Enter the total overtime hours: "))
+    
+    # Calculate total weekly pay
+    total_weekly_pay = calculate_weekly_pay(hourly_wage, regular_hours, overtime_hours)
+    
+    # Display the result
+    print(f"The employee's total weekly pay is ${total_weekly_pay:.2f}")
+
+if __name__ == "__main__":
+    main()
