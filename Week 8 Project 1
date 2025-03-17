@@ -1,0 +1,22 @@
+def compute_average(filename):
+    """Reads numbers from a file, computes and returns their average."""
+    with open(filename, 'r') as file:
+        numbers = list(map(float, filter(lambda x: x.strip(), file)))  # Convert lines to floats, ignore empty lines
+    
+    return sum(numbers) / len(numbers) if numbers else 0  # Avoid division by zero
+
+# Tester function
+def main():
+    filename = "numbers.txt"  # Replace with the actual file path
+    try:
+        avg = compute_average(filename)
+        print(f"The average is: {avg:.2f}")
+    except FileNotFoundError:
+        print("Error: File not found.")
+    except ValueError:
+        print("Error: File contains invalid data.")
+    except ZeroDivisionError:
+        print("Error: File contains no valid numbers.")
+
+if __name__ == "__main__":
+    main()
