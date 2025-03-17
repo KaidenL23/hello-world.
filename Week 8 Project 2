@@ -1,0 +1,19 @@
+import re
+
+def inputFloat(prompt):
+    """Prompts the user for a floating-point number, ensuring valid input."""
+    while True:
+        user_input = input(prompt)
+        if re.fullmatch(r'[-+]?[0-9]*\.?[0-9]+', user_input):
+            return float(user_input)
+        else:
+            print("Invalid input. Please enter a valid floating-point number.")
+
+# Tester function
+def main():
+    print("Testing inputFloat function.")
+    num = inputFloat("Enter a floating-point number: ")
+    print(f"You entered: {num}")
+
+if __name__ == "__main__":
+    main()
