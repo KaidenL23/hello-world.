@@ -1,0 +1,27 @@
+def isSorted(lst):
+    """Returns True if the list is sorted in ascending order, otherwise False."""
+    for i in range(len(lst) - 1):
+        if lst[i] > lst[i + 1]:
+            return False
+    return True
+
+# Tester program
+def main():
+    test_cases = [
+        ([], True),  # Empty list
+        ([1], True),  # Single element
+        ([1, 2, 3, 4, 5], True),  # Sorted list
+        ([5, 4, 3, 2, 1], False),  # Descending order
+        ([1, 1, 2, 2, 3, 3], True),  # List with duplicates sorted
+        ([3, 1, 4, 2, 5], False)  # Unsorted list
+    ]
+    
+    for i, (lst, expected) in enumerate(test_cases, 1):
+        result = isSorted(lst)
+        print(f"Test {i}: {lst} -> {result} (Expected: {expected})")
+        assert result == expected, f"Test {i} failed"
+    
+    print("All tests passed!")
+
+if __name__ == "__main__":
+    main()
