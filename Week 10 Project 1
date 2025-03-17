@@ -1,0 +1,51 @@
+# taxformwithgui.py
+
+import tkinter as tk
+from tkinter import ttk  # For themed widgets (better look)
+
+def calculate_tax():
+    """Calculates the income tax based on user inputs."""
+    try:
+        gross_income = float(gross_income_entry.get())
+        dependents = int(dependents_entry.get())
+
+        # --- Replace this with your actual tax calculation logic ---
+        exemption = dependents * 2500
+        taxable_income = gross_income - exemption
+        if taxable_income < 0:
+            taxable_income = 0
+        tax_rate = 0.12  # Example tax rate
+        tax = taxable_income * tax_rate
+        # --- End of tax calculation ---
+
+        tax_result_label.config(text=f"Total tax: ${tax:.2f}")  # Display with formatting
+
+    except ValueError:
+        tax_result_label.config(text="Invalid input")  # Handle errors
+
+# --- Set up the main window ---
+root = tk.Tk()
+root.title("Tax Calculator")
+
+# --- Create and place widgets ---
+# Labels and entry fields
+gross_income_label = ttk.Label(root, text="Gross income:")
+gross_income_label.grid(row=0, column=0, padx=5, pady=5, sticky="w")
+gross_income_entry = ttk.Entry(root)
+gross_income_entry.grid(row=0, column=1, padx=5, pady=5)
+
+dependents_label = ttk.Label(root, text="Dependents:")
+dependents_label.grid(row=1, column=0, padx=5, pady=5, sticky="w")
+dependents_entry = ttk.Entry(root)
+dependents_entry.grid(row=1, column=1, padx=5, pady=5)
+
+# Calculate button
+calculate_button = ttk.Button(root, text="Compute", command=calculate_tax)
+calculate_button.grid(row=2, column=0, columnspan=2, padx=5, pady=10)
+
+# Result label
+tax_result_label = ttk.Label(root, text="Total tax: $0.00")
+tax_result_label.grid(row=3, column=0, columnspan=2, padx=5, pady=5)
+
+# --- Start the event loop ---
+root.mainloop()
